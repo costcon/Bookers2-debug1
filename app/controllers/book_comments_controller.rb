@@ -9,20 +9,16 @@ class BookCommentsController < ApplicationController
     @book_comments = BookComment.all
     @user = current_user
     if @book_comment.save
-      redirect_to book_path(@book), notice: "You have posted comment successfully."
-    else
-      @book_new = Book.new
-      render "books/show"
+    #   redirect_to book_path(@book), notice: "You have posted comment successfully."
+    # else
+    #   @book_new = Book.new
+      render :index
     end
   end
 
   def destroy
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    redirect_to book_path(params[:book_id])
-    # @book = Book.find(params[:id])
-    # @book_comment = BookComment.find(params[:id])
-    # @book_comment.destroy
-    # redirect_to book_path(@book)
+    render :index
   end
 
   private
