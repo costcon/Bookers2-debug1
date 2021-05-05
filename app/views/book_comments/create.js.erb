@@ -3,4 +3,5 @@
 <!--  // 以下の記述でも同じ挙動をします。html()以降では部分テンプレートを呼び出しています。-->
 
 
-$("#favorite-btn_<%= @book.id %>").html("<%= j(render 'favorites/favorite-btn', book: @book) %>");
+$("#book_comment").html("<%= j(render 'book_comments/book_comment', book: @book, user: @user) %>");
+$("textarea").val('')

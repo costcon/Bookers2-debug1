@@ -1,1 +1,5 @@
-$('.book_<%= @book.id %>').html("<%= j(render partial: 'books/index', locals: {book: @book}) %>");
+<!--$(".favorite-btn").html("<#%= escape_javascript(render partial: 'favorites/favorite-btn', locals: {book: @book}) %>");-->
+<!--  // インスタンス変数は、favorites_controllerのcreateアクションで定義されたものが使用できます。-->
+<!--  // 以下の記述でも同じ挙動をします。html()以降では部分テンプレートを呼び出しています。-->
+
+$("#favorite-btn_<%= @book.id %>").html("<%= j(render 'favorites/favorite-btn', book: @book) %>");
