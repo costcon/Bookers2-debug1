@@ -70,3 +70,6 @@ gem 'jquery-ui-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'bootstrap', '~> 4.5'
 gem 'jp_prefecture'
+
+gem 'slim-rails' #slimファイルを使えるようにする
+gem 'html2slim' #既存のerbファイルをslimファイルに変換出来る様にする
