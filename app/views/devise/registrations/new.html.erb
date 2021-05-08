@@ -15,20 +15,20 @@
 
 
         <div class="field">
-          <%= f.label :postal_code %><br />
-          <%= f.text_field :postal_code %>
+          <%= f.label :postcode %><br />
+          <%= f.text_field :postcode %>
         </div>
         <div class="field">
           <%= f.label :prefecture_code %><br />
           <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
         </div>
         <div class="field">
-          <%= f.label :city %><br />
-          <%= f.text_field :city %>
+          <%= f.label :address_city %><br />
+          <%= f.text_field :address_city %>
         </div>
         <div class="field">
-          <%= f.label :street %><br />
-          <%= f.text_field :street %>
+          <%= f.label :address_street %><br />
+          <%= f.text_field :address_street %>
         </div>
 
 
