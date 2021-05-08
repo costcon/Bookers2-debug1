@@ -59,11 +59,6 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
   validates :introduction, length: { maximum: 50 }
 
-  validates :postcode, presence: true
-  validates :prefecture_code, presence: true
-  validates :address_city, presence: true
-  validates :address_street, presence: true
-
 
 
 end

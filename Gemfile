@@ -73,3 +73,5 @@ gem 'jp_prefecture'
 
 gem 'slim-rails' #slimファイルを使えるようにする
 gem 'html2slim' #既存のerbファイルをslimファイルに変換出来る様にする
+
+gem 'dotenv-rails'

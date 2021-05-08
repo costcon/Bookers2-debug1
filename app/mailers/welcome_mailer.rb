@@ -5,9 +5,14 @@ class WelcomeMailer < ApplicationMailer
   #
   #   en.welcome_mailer.send_when_signup.subject
   #
-  def send_when_signup(email, name)
-    @greeting = "Hi"
 
-    mail to: email, subject: "Registration Complete! Thanks for Joining!"
+  def complete_registration(user)
+    @user = user
+    mail(:subject => "Registration Complete! Thanks for Joining!", to: user.email)
   end
+  # def send_when_signup(email, name)
+  #   @name = name
+  #   mail to: email, subject: 'Registration Complete! Thanks for Joining!'
+  # end
+
 end

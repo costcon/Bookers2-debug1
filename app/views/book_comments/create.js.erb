@@ -3,5 +3,5 @@
 <!--  // 以下の記述でも同じ挙動をします。html()以降では部分テンプレートを呼び出しています。-->
 
 
-$("#book_comment").html("<%= j(render 'book_comments/book_comment', book: @book, user: @user) %>");
+$(".book_comment").html("<%= j(render 'book_comments/book_comment', book: @book, user: @user) %>");
 $("textarea").val('')
