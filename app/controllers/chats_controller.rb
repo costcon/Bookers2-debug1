@@ -1,15 +1,16 @@
 class ChatsController < ApplicationController
-  
+
   def show
-  #BさんのUser情報を取得
+  #チャット相手のUser情報を取得（チャットしたい相手のチャット開始ボタンを押したときにparamsに）
    @user = User.find(params[:id])
-  #user_roomsテーブルのuser_idがAさんのレコードのroom_idを配列で取得
+  #user_roomsテーブルのuser_idがAさんのレコードのroom_idを配列で取得　　自分とpluck(:room_id)で全てのデータをまず持ってきて並べている状態
    rooms = current_user.user_rooms.pluck(:room_id)
   #user_idがBさん(@user)で、room_idがAさんの属するroom_id（配列）となるuser_roomsテーブルのレコードを取得して、user_room変数に格納
   #これによって、AさんとBさんに共通のroom_idが存在していれば、その共通のroom_idとBさんのuser_idがuser_room変数に格納される（1レコード）。存在しなければ、nilになる。
+  # →Find＿byで＠User.id（チャット相手）を検索条件にroom_idを上で定義した変数の中から一つだけ引っ張ってくる
    user_room = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
-  #user_roomでルームを取得できなかった（AさんとBさんのチャットがまだ存在しない）場合の処理  
+  #user_roomでルームを取得できなかった（AさんとBさんのチャットがまだ存在しない）場合の処理
    room = nil
    if user_room.nil?
    #roomのidを採番
@@ -42,5 +43,5 @@ class ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:message, :room_id)
   end
-  
+
 end
