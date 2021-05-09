@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -18,6 +20,10 @@ Rails.application.routes.draw do
 
 
   get 'search' => "searches#search"
+
+
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
 
   get 'home/about' => 'homes#about'
