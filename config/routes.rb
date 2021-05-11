@@ -29,5 +29,9 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   root 'homes#top'
 
+  get 'unsubscribe/:name' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:name' => 'homes#withdraw', as: 'withdraw_user'
+  put 'withdraw/:name' => 'users#withdraw'
+
 
 end
